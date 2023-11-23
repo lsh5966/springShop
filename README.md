@@ -37,8 +37,8 @@
     ![K-063](https://github.com/lsh5966/footsell/assets/107310843/e74d2e2b-7fa2-44f1-b10d-1beb952338a7)<br/><br/>
 
 + 쇼핑
-  + 카테고리로 구성된 상품 조회, 상품수량 선택, 비동기식댓글 작성및 수정,삭제
-  + 장바구니담기, 주문, 주문목록, 주문목록 상세보기,주문 취소
+  + 카테고리로 구성된 상품 조회, 상품수량 선택,장바구니담기
+  + 비동기식댓글 작성및 수정,삭제
     ![K-065](https://github.com/lsh5966/footsell/assets/107310843/1718f1c2-8b58-4b73-aabe-100f3ea18a10)
     ![K-066](https://github.com/lsh5966/footsell/assets/107310843/281bfa8d-8460-4edd-911f-f1f05818c291)
     ![K-067](https://github.com/lsh5966/footsell/assets/107310843/a8d8df97-287f-4611-9602-21b2e8c13194)
