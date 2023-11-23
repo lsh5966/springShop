@@ -36,8 +36,8 @@
   + 게시판 페이징,검색,조회수증가,댓글수표시
 
 ![K-080](https://github.com/lsh5966/springShop/assets/107310843/2464c813-7041-4f02-af47-379347bc0296)
-![K-063](https://github.com/lsh5966/springShop/assets/107310843/902a4eef-940b-4ff2-a82e-80a6e19dbad7)
 ![K-064](https://github.com/lsh5966/springShop/assets/107310843/8f2556f8-ef90-496d-accc-a9ca07a082d9)
+![K-063](https://github.com/lsh5966/springShop/assets/107310843/902a4eef-940b-4ff2-a82e-80a6e19dbad7)
  
 
 + 쇼핑
