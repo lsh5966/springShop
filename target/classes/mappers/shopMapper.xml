@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.footsell.mappers.shopMapper">
+
+
+
+	<select id="list_1" resultType="com.footsell.domain.GoodsViewVO">
+		select
+		g.gdsNum, g.gdsName,
+		g.cateCode, c.cateCodeRef, c.cateName, gdsPrice, gdsStock,
+		gdsDes,
+		gdsImg, gdsDate, g.gdsImg, g.gdsThumbImg
+		from tbl_goods g
+		inner join
+		goods_category c
+		on g.cateCode = c.cateCode
+		where g.cateCode =
+		#{cateCode}
+		or c.cateCodeRef = #{cateCodeRef}
+	</select>
+
+	<!-- 카테고리별 상품 리스트 : 2차 분류 -->
+	<select id="list_2" resultType="com.footsell.domain.GoodsViewVO">
+		select
+		g.gdsNum, g.gdsName,
+		g.cateCode, c.cateCodeRef, c.cateName,
+		gdsPrice, gdsStock, gdsDes,
+		gdsDate, g.gdsImg, g.gdsThumbImg
+		from tbl_goods g
+		inner join
+		goods_category c
+		on g.cateCode = c.cateCode
+		where g.cateCode =
+		#{cateCode}
+	</select>
+
+	<!-- 상품 소감(댓글) 작성 -->
+	<!-- <insert id="registReply">
+		INSERT INTO tbl_shop_reply (gdsNum, userId, repCon)
+		VALUES (#{gdsNum}, #{userId}, #{repCon});
+	</insert> -->
+
+	<!-- 상품 소감(댓글) 리스트 -->
+	<!-- <select id="shopReplyList"
+		resultType="com.footsell.domain.ShopReplyListVO">
+		select
+		r.gdsNum, r.userId, r.repNum, r.repCon, r.repDate,
+		m.userName
+		from tbl_shop_reply r
+		inner join tbl_member m
+		on r.userId =
+		m.userId
+		where gdsNum = #{gdsNum}
+	</select> -->
+
+	<!-- 상품 소감(댓글) 삭제 -->
+	<delete id="deleteReply">
+		delete from tbl_shop_reply
+		where repNum = #{repNum}
+		and userId = #{userId}
+	</delete>
+
+	<!-- 아이디 체크 -->
+	<select id="replyUserIdCheck" resultType="String">
+		select userId
+		from
+		tbl_shop_reply
+		where repNum = #{repNum}
+	</select>
+
+	<!-- 상품 소감(댓글) 수정 -->
+	<update id="modifyReply">
+		update tbl_shop_reply
+		set
+		repCon = #{repCon}
+		where
+		repNum = #{repNum}
+		and userId = #{userId}
+	</update>
+
+	<!-- 카트 담기 -->
+	<insert id="addCart">
+		insert into tbl_cart (userId, gdsNum, cartStock)
+		values (#{userId}, #{gdsNum}, #{cartStock})
+	</insert>
+
+	<!-- 카트 리스트 -->
+	<select id="cartList"
+		resultType="com.footsell.domain.CartListVO">
+		select
+		row_number() over(order by c.cartNum desc) as num,
+		c.cartNum, c.userId, c.gdsNum, c.cartStock, c.addDate,
+		g.gdsName,
+		g.gdsPrice, g.gdsThumbImg
+		from tbl_cart c
+		inner join tbl_goods g
+		on
+		c.gdsNum = g.gdsNum
+		where c.userId = #{userId}
+	</select>
+
+	<!-- 카트 삭제 -->
+	<delete id="deleteCart">
+		delete FROM tbl_cart
+		where cartNum = #{cartNum}
+		and
+		userId = #{userId}
+	</delete>
+
+	<!-- 주문 정보 -->
+	<insert id="orderInfo">
+		INSERT INTO tbl_order (orderId, userId, orderRec,
+		userAddr1, userAddr2, userAddr3, orderPhon, amount)
+		VALUES (#{orderId},
+		#{userId}, #{orderRec}, #{userAddr1}, #{userAddr2},
+		#{userAddr3},
+		#{orderPhon}, #{amount})
+	</insert>
+
+	<!-- 주문 상세 정보 -->
+	<insert id="orderInfo_Details">
+		INSERT INTO tbl_order_details (orderId, gdsNum,
+		cartStock)
+		SELECT #{orderId}, gdsNum, cartStock
+		FROM tbl_cart
+	</insert>
+	<!-- 카트 비우기 -->
+	<delete id="cartAllDelete">
+		delete from tbl_cart
+		where userId = #{userId}
+	</delete>
+	
+	<!-- 유저의 주문 목록 -->
+	<select id="orderList" resultType="com.footsell.domain.OrderVO">
+		SELECT orderId, userId,
+		orderRec, userAddr1, userAddr2, userAddr3,
+		orderPhon, amount,
+		orderDate, delivery
+		FROM tbl_order
+		WHERE userId = #{userId}
+	</select>
+	
+	<!--  -->
+	<select id="orderView"
+		resultType="com.footsell.domain.OrderListVO">
+		SELECT
+		o.orderId, o.userId, o.orderRec, o.userAddr1,
+		o.userAddr2, o.userAddr3,
+		o.orderPhon, o.amount,
+		o.orderDate,o.delivery,
+		d.orderDetailsNum, d.gdsNum, d.cartStock,
+		g.gdsName, g.gdsThumbImg, gdsPrice
+		FROM tbl_order o
+		INNER JOIN
+		tbl_order_details d ON o.orderId = d.orderId
+		INNER JOIN tbl_goods g ON
+		d.gdsNum = g.gdsNum
+		WHERE o.userId = #{userId}
+		AND o.orderId =
+		#{orderId}
+	</select>
+	
+	<!-- 주문 취소 쿼리 -->
+<delete id="cancelOrderDetails">
+    DELETE FROM tbl_order_details
+    WHERE orderID = #{orderId}
+</delete>
+
+<delete id="cancelOrder">
+    DELETE FROM tbl_order
+    WHERE orderID = #{orderId}
+</delete>
+		
+		
+<!-- 댓글작성 -->
+<insert id="registReply">
+    INSERT INTO tbl_shop_reply (gdsNum, userId, repNum, repParent, repCon)
+    VALUES (#{gdsNum}, #{userId}, #{repNum}, #{repParent}, #{repCon});
+</insert>
+
+<!-- 대댓글 리스트 -->
+<select id="shopReplyList" parameterType="int" resultType="com.footsell.domain.ShopReplyListVO">
+    SELECT
+    r.gdsNum, r.userId, r.repNum, r.repCon, r.repDate,
+    m.userName, r.repParent
+    FROM tbl_shop_reply r
+    INNER JOIN tbl_member m ON r.userId = m.userId
+    WHERE gdsNum = #{gdsNum} AND repParent IS NOT NULL;
+</select>
+
+</mapper>

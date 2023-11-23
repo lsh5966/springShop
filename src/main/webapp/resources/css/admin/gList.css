@@ -1,0 +1,59 @@
+@charset "EUC-KR";
+
+.inputArea {
+	margin: 10px 0;
+}
+
+select {
+	width: 100px;
+}
+
+label {
+	display: inline-block;
+	width: 70px;
+	padding: 5px;
+}
+
+label[for='gdsDes'] {
+	display: block;
+}
+
+input {
+	width: 150px;
+}
+
+textarea#gdsDes {
+	width: 400px;
+	height: 180px;
+}
+
+#container_box table td {
+	width: 100px;
+}
+
+#container_box table {
+	width: 900px;
+}
+
+#container_box table th {
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	padding: 10px;
+	border-bottom: 2px solid #666;
+}
+
+#container_box table tr:hober {
+	background: #eee;
+}
+
+#container_box table td {
+	padding: 10px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#container_box table img {
+	width: 150px;
+	height: auto;
+}

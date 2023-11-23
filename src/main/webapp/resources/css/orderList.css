@@ -1,0 +1,18 @@
+@charset "EUC-KR";
+
+section#content ul li {
+	border: 5px solid #eee;
+	padding: 10px 20px;
+	margin-bottom: 20px;
+}
+
+section#content .orderList span {
+	font-size: 20px;
+	font-weight: bold;
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.orderCancel{
+float: right;
+}

@@ -1,0 +1,45 @@
+@charset "EUC-KR";
+
+form {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+	font-size: 1rem;
+	display: block;
+	margin-bottom: 0.5rem;
+}
+
+form input[type="text"],
+form input[type="password"],
+form textarea {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+form textarea {
+	height: 150px;
+}
+
+form button[type="submit"] {
+	background-color: #007bff;
+	color: #fff;
+	padding: 0.5rem 1rem;
+	border: none;
+	cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+	background-color: #0056b3;
+}
+
+.error{
+width: 200px;
+height: 20px;
+}

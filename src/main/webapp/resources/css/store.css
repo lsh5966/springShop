@@ -1,0 +1,78 @@
+@charset "EUC-KR";
+
+div#container_box {
+	float: right;
+	width:80%;
+	margin: 0 auto;
+}
+
+section#container {
+	padding: 20px 0;
+	border-top: 2px solid #eee;
+	border-bottom: 2px solid #eee;
+	display: flex;
+}
+
+section#container::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+aside {
+	width: 150px;
+}
+
+aside h3 {
+	font-size: 22px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+aside ul li {
+	font-size: 16px;
+	text-align: center;
+}
+
+aside ul li a {
+	color: #000;
+	display: block;
+	padding: 10px 0;
+}
+
+aside ul li a:hover {
+	text-decoration: none;
+	background: #eee;
+}
+
+aside li {
+	position: relative;
+}
+
+aside ul li:hover {
+	background: #eee;
+}
+
+aside ul li>ul.low {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 150px;
+}
+
+aside ul li:hover>ul.low {
+	display: block;
+}
+
+aside ul li:hover>ul.low li a {
+	background: #eee;
+	border: 1px solid #eee;
+}
+
+aside ul li:hover>ul.low li a:hover {
+	background: #fff;
+}
+
+aside ul li>ul.low li {
+	width: 150px;
+}
