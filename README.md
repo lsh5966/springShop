@@ -17,8 +17,9 @@
 ### 프로젝트 설명
 - - - 
 + 메인 홈페이지
-  + 홈 화면 슬라이더 구현
-    ![K-078](https://github.com/lsh5966/springShop/assets/107310843/4cc8dfe5-7543-4e92-a664-8056b8ad1ff9)
+   + 스와이프api 활용 슬라이더 구현
+
+![K-078](https://github.com/lsh5966/springShop/assets/107310843/4cc8dfe5-7543-4e92-a664-8056b8ad1ff9)
 
 + 회원가입
   + 이메일형식 아이디와 공란 유효성 확인
@@ -43,27 +44,31 @@
 + 쇼핑
   + 카테고리로 구성된 상품 조회, 상품수량 선택,장바구니담기
   + 비동기식댓글 작성및 수정,삭제
+
 ![K-065](https://github.com/lsh5966/springShop/assets/107310843/23e06fc6-23d9-4bbc-8d58-f87348dd3684)
 ![K-066](https://github.com/lsh5966/springShop/assets/107310843/22e14e2c-c44a-4079-9025-9282e546b46c)
- ![K-067](https://github.com/lsh5966/springShop/assets/107310843/9d5f4c18-9032-434e-9deb-a46bd025245b)
-  ![K-068](https://github.com/lsh5966/springShop/assets/107310843/ad027aa7-1268-4274-b1dd-13501fc955bc)
+![K-067](https://github.com/lsh5966/springShop/assets/107310843/9d5f4c18-9032-434e-9deb-a46bd025245b)
+![K-068](https://github.com/lsh5966/springShop/assets/107310843/ad027aa7-1268-4274-b1dd-13501fc955bc)
 
     
 + 장바구니 확인및 삭제
 + 다음주소api를 활용한 주문정보 입력
+
 ![K-085](https://github.com/lsh5966/springShop/assets/107310843/683bafaa-f966-4c6b-9aaa-6f933282b26c)
 
 + 주문내역보기
-+ 주문내역 상세보기 및 삭제
++ 주문내역 상세보기 및 주문취소
+
 ![K-082](https://github.com/lsh5966/springShop/assets/107310843/752ee5b9-5411-4c70-8d53-dcaf31b95330)
 ![K-086](https://github.com/lsh5966/springShop/assets/107310843/79c1b160-a0df-48de-9cf6-fff470127335)
 
 
 + 관리자 페이지
-  + 상품 등록,삭제,수정
-  + 등록상품 목록
+  + 상품 등록
+  + 등록상품 목록 조회,삭제,수정
   + 사용자가 주문한 주문목록 보기
   + 배송상태 변경
+
 ![K-087](https://github.com/lsh5966/springShop/assets/107310843/d86fbc98-5197-41e0-946e-bd02a12c0609)
 ![K-074](https://github.com/lsh5966/springShop/assets/107310843/7cd6adc1-966c-4588-8871-1b4d8a19d610)
 ![K-088](https://github.com/lsh5966/springShop/assets/107310843/e74b984b-2534-4bca-8cf8-7e98e87cdb97)
